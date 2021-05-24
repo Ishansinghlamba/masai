@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+       <style>
+           *{
+               
+               padding: 0;
+           }
+           #container{
+               width: 85%;
+               height: 610px;
+               margin: auto;
+           }
+           #container1{
+               width: 25%;
+               height: 100%;
+                float: left;
+
+
+           }
+           input[placeholder ="Name"],input[placeholder ="Price"],input[placeholder ="Description"],input[placeholder ="Estimated Deleivery"],input[placeholder ="image"]{
+               margin: 30px;
+           }
+           #container1 button{
+               margin: 30px;
+               padding: 10px 20px;
+               color: rgb(171,232,202);
+               background-color:black;
+               border-radius: 10px;
+               font-size: 20px;
+            
+           }
+
+           #container2{
+               width: 73%;
+               height: 610px;
+                float: left;
+                margin-left: 20px;
+            }
+
+            #task{
+                display: grid;
+                grid-template-columns: 170px 170px 170px;
+            
+                grid-gap: 50px;
+                margin-left: 20px;
+            }
+
+            #task button{
+                background-color:darkorange;
+                color: blanchedalmond;
+                margin: 5px;
+                border-radius: 5px;      
+            }
+            #container2{
+                font-size: 20px;
+                font-weight: bold;
+                color: black;
+                font-style:italic;
+            }
+       </style>
+</head>
+<body>
+    <div id="container">
+       <div id="container1">
+        <input type="text" placeholder="Name" id="name">
+        <input type="number" placeholder="Price" id="price">
+        <input type="text" placeholder="Description" id="desc">
+        <input type="date" placeholder="Estimated Deleivery" id="time">
+        <input type="text" placeholder="image">
+        <button onclick="add()">Add Product</button>
+       </div>
+       
+       <div id= container2>
+              <div id ="task">
+
+              </div>
+       </div>
+    </div>
+</body>
+</html>
+<script>
+    id = 0;
+    function add(){
+        var price = document.getElementById("price")
+        var name = document.getElementById("name")
+        var desc = document.getElementById("desc")
+        var time = document.getElementById("time")
+        var div =document.createElement("div");
+        id++;
+        div.innerHTML=`<p id= "${id}">${name.value}<br>${price.value}<br>${desc.value}<br>${time.value}<br><img src="https://via.placeholder.com/70x100"></img><p><br><button id="${id}" onclick="price(${id})">Update Price</button><button id="${id}" onclick="remove(${id})">Remove</button>`;
+        task.appendChild(div);
+        
+    }
+    function price(id){
+        var name = document.getElementById("name")
+        var new_price=  prompt(`Enter new price`);
+        var po = document.getElementById(id);
+        po.innerHTML= `<p id= "${id}">${name.value}<br>${new_price}<br>${desc.value}<br>${time.value}<br><img src="https://via.placeholder.com/70x100"></img><p>`
+        
+    }
+
+    function remove(id){
+        var pu = document.getElementById(id);
+        var parent =pu.parentElement
+        parent.remove();
+    }
+</script>
